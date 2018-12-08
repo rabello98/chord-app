@@ -1,0 +1,33 @@
+{
+  "name": "chord",
+  "version": "1.0.0",
+  "description": "This is a JavaScript framework created to develop single-page applications with ease, convenience and clean code",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack-dev-server --config webpack.config.js",
+    "build": "cross-env NODE_ENV=production webpack --config webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rabello98/chord.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rabello98/chord/issues"
+  },
+  "homepage": "https://github.com/rabello98/chord#readme",
+  "dependencies": {
+    "babel-loader": "^7.1.5"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-es2017": "^6.24.1",
+    "babili-webpack-plugin": "^0.1.2",
+    "cross-env": "^5.2.0",
+    "webpack": "^4.27.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10"
+  }
+}
