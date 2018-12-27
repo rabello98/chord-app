@@ -1,7 +1,13 @@
 const path = require('path')
 const babiliWebpackPlugin = require('babili-webpack-plugin')
+const webpack = require('webpack')
 
-let plugins = []
+let plugins = [
+  new webpack.ProvidePlugin({
+    $: 'jquery/dist/jquery.js',
+    jQuery: 'jquery/dist/jquery.js'
+  })
+]
 
 if (process.env.NODE_ENV == 'production') {
   plugins.push(new babiliWebpackPlugin())
@@ -22,6 +28,10 @@ module.exports = {
         use: {
           loader: 'babel-loader'
         }
+      },
+      {
+        test: /\.html$/,
+        use: 'raw-loader'
       }
     ]
   },

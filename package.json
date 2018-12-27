@@ -19,13 +19,15 @@
   },
   "homepage": "https://github.com/rabello98/chord#readme",
   "dependencies": {
-    "babel-loader": "^7.1.5"
+    "babel-loader": "^7.1.5",
+    "jquery": "^3.3.1"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-preset-es2017": "^6.24.1",
     "babili-webpack-plugin": "^0.1.2",
     "cross-env": "^5.2.0",
+    "raw-loader": "^1.0.0",
     "webpack": "^4.27.1",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.10"
