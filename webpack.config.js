@@ -20,6 +20,13 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/dist/'
   },
+  resolve: {
+    alias: {
+      View: path.resolve(__dirname, 'app/view'),
+      Js: path.resolve(__dirname, 'app/js'),
+      Style: path.resolve(__dirname, 'app/style')
+    }
+  },
   module: {
     rules: [
       {
