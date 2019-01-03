@@ -20,7 +20,8 @@
   "homepage": "https://github.com/rabello98/chord#readme",
   "dependencies": {
     "babel-loader": "^7.1.5",
-    "jquery": "^3.3.1"
+    "jquery": "^3.3.1",
+    "moment": "^2.23.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
