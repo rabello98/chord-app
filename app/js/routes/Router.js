@@ -1,12 +1,10 @@
-import App from '../app' 
-
 import Home from 'Js/modules/home'
 import HomeView from 'View/modules/homeView.html'
 
 import Detail from 'Js/modules/detail'
 import DetailView from 'View/modules/detailView.html'
 
-export const Router  = {
+export const Route = {
     routes: {
         home: {
             module: Home,
@@ -21,10 +19,15 @@ export const Router  = {
     },
 
     buildHome () {
-        App.render(this.routes.home.view, this.routes.home.module);
+        $chord.render(this.routes.home.view, this.routes.home.module);
     },
 
     buildDetail () {
-        App.render(this.routes.detail.view, this.routes.detail.module);
+        $chord.render(this.routes.detail.view, this.routes.detail.module);
+    },
+    
+    init () {
+        // build default route (the /)
+        this.buildHome();
     }
 }

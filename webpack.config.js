@@ -5,7 +5,9 @@ const webpack = require('webpack')
 let plugins = [
   new webpack.ProvidePlugin({
     $: 'jquery/dist/jquery.js',
-    jQuery: 'jquery/dist/jquery.js'
+    jQuery: 'jquery/dist/jquery.js',
+    $route: [path.resolve(__dirname, 'app/js/routes/router.js'), 'Route'],
+    $chord: [path.resolve(__dirname, 'framework/chord.js'), 'Chord']
   })
 ]
 
@@ -14,7 +16,7 @@ if (process.env.NODE_ENV == 'production') {
 }
 
 module.exports = {
-  entry: './app/js/app.js',
+  entry: path.resolve(__dirname, 'app/js/app.js'),
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
@@ -42,5 +44,5 @@ module.exports = {
       }
     ]
   },
-  plugins
+  plugins: plugins
 }

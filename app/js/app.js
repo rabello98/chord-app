@@ -1,17 +1,9 @@
-import { Router } from './routes/Router'
-window.$router = Router
-
 import moment from 'moment'
 
-const global = {
+const globalModules = {
     moment: moment
 }
 
-window.globalModules = global
+$chord.initGlobalModules(globalModules);
 
-export default {
-    render (CurrentView, CurrentModule) {
-        $('#app').html(CurrentView);
-        window[CurrentModule.moduleName] = CurrentModule
-    }
-}
+$route.init()
