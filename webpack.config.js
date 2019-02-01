@@ -19,8 +19,7 @@ module.exports = {
   entry: path.resolve(__dirname, 'app/js/app.js'),
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'),
-    publicPath: '/dist/'
+    path: path.resolve(__dirname, 'dist')
   },
   resolve: {
     alias: {
@@ -44,5 +43,10 @@ module.exports = {
       }
     ]
   },
-  plugins: plugins
+  plugins: plugins,
+  devServer: {
+    port: '8000',
+    publicPath: '/',
+    contentBase: "./app"
+  }
 }
