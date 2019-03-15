@@ -1,8 +1,8 @@
 {
-  "name": "chord",
+  "name": "chord-app",
   "version": "1.0.0",
   "description": "This is a JavaScript framework created to develop single-page applications with ease, convenience and clean code",
-  "main": "index.js",
+  "main": "./app/js/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server --config webpack.config.js",
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rabello98/chord.git"
+    "url": "git+https://github.com/rabello98/chord-app.git"
   },
-  "author": "",
+  "author": "Nathan Rabelo Valentim",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/rabello98/chord/issues"
+    "url": "https://github.com/rabello98/chord-app/issues"
   },
-  "homepage": "https://github.com/rabello98/chord#readme",
+  "homepage": "https://github.com/rabello98/chord-app#readme",
   "dependencies": {
     "babel-loader": "^7.1.5",
     "jquery": "^3.3.1",
