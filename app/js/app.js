@@ -1,9 +1,4 @@
-import moment from 'moment'
+import routes from 'Js/routes/routes'
 
-const globalModules = {
-    moment: moment
-}
-
-$chord.initGlobalModules(globalModules);
-
-$route.init()
+$route.init(routes)
+$chord.init($route, '#app')

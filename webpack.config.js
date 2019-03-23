@@ -6,8 +6,8 @@ let plugins = [
   new webpack.ProvidePlugin({
     $: 'jquery/dist/jquery.js',
     jQuery: 'jquery/dist/jquery.js',
-    $route: [path.resolve(__dirname, 'app/js/routes/router.js'), 'Route'],
-    $chord: [path.resolve(__dirname, 'framework/chord.js'), 'Chord']
+    $chord: 'chord-framework/dist/chord.js',
+    $route: 'chord-framework/dist/router.js'
   })
 ]
 
