@@ -1,10 +1,5 @@
-import homeRoutes from 'Js/routes/home/homeRoutes'
+import { home } from './home'
 
-export default {
-    main: {
-        module: homeRoutes.index,
-        view: homeRoutes.indexView,
-        path: '/Home',
-        name: 'home'
-    }
-}
+export const routes = [
+    ...home
+]

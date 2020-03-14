@@ -5,7 +5,7 @@ export default {
         },
 
         navigate () {
-            
+            $route.go({name: 'home'})
         },
     },
 

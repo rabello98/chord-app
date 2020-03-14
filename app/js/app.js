@@ -1,4 +1,7 @@
-import routes from 'Js/routes/routes'
+import { routes } from 'Js/routes/routes'
 
-$route.init(routes)
+$route.init({
+    routes: routes,
+    historyMode: false
+})
 $chord.init($route, '#app')
