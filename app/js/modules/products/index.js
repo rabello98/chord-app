@@ -1,11 +1,11 @@
 export default {
     component: {
-        msgHome () {
+        msgProducts () {
             
         },
 
         navigate () {
-            $route.go({name: 'products.index'})
+            $route.go({name: 'home'})
         },
     },
 
