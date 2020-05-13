@@ -1,23 +1,19 @@
 export default {
     component: {
-        msgProducts () {
-            
+        navigate2Home () {
+            $route.go({ name: 'home' })
         },
 
-        navigate () {
-            $route.go({name: 'home'})
+        navigate2New () {
+            $route.go({ name: 'products.edit' })
         },
-    },
-
-    beforeCreate () {
         
-    },
+        navigate2Edit () {
+            $route.go({ name: 'products.edit', params: { product_id : '5341' } })
+        },
 
-    afterCreate () {
-        
-    },
-
-    beforeRemove () {
-        
+        navigate2Detail () {
+            $route.go({ name: 'products.detail', params: { product_id : '5341' } })
+        }
     }
 }
