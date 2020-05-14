@@ -26,10 +26,19 @@ if (process.env.NODE_ENV == 'production') {
 }
 
 module.exports = {
-  entry: path.resolve(__dirname, 'app/js/app.js'),
+  entry: {
+    app: path.resolve(__dirname, 'app/js/app.js'),
+    style: path.resolve(__dirname, 'app/style/style.js')
+  },
   output: {
-    filename: 'bundle.js',
+    filename: '[name].bundle.js',
+    chunkFilename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist')
+  },
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+    },
   },
   resolve: {
     alias: {
