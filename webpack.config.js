@@ -1,6 +1,7 @@
 const path = require('path')
-const babiliWebpackPlugin = require('babili-webpack-plugin')
 const webpack = require('webpack')
+const babiliWebpackPlugin = require('babili-webpack-plugin')
+const Dotenv = require('dotenv-webpack')
 
 let plugins = [
   new webpack.ProvidePlugin({
@@ -8,7 +9,8 @@ let plugins = [
     jQuery: 'jquery/dist/jquery.js',
     $chord: 'chord-framework/dist/chord.js',
     $route: 'chord-framework/dist/router.js'
-  })
+  }),
+  new Dotenv()
 ]
 
 if (process.env.NODE_ENV == 'production') {
@@ -47,6 +49,7 @@ module.exports = {
   devServer: {
     port: '8000',
     publicPath: '/',
-    contentBase: "./app"
+    contentBase: "./app",
+    historyApiFallback: false
   }
 }
