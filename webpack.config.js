@@ -1,6 +1,8 @@
 const path = require('path')
 const webpack = require('webpack')
 const babiliWebpackPlugin = require('babili-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const dotenv = require('dotenv').config();
 
 let plugins = [
@@ -13,6 +15,10 @@ let plugins = [
   new webpack.DefinePlugin({
     "process.env": dotenv.parsed
   }),
+  new HtmlWebpackPlugin({
+    template: path.resolve(__dirname, 'app/index.html')
+  }),
+  new CleanWebpackPlugin(),
 ]
 
 if (process.env.NODE_ENV == 'production') {
@@ -44,6 +50,10 @@ module.exports = {
       {
         test: /\.html$/,
         use: 'raw-loader'
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
       }
     ]
   },
