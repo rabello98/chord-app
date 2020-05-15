@@ -4,6 +4,8 @@ const babiliWebpackPlugin = require('babili-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const dotenv = require('dotenv').config();
+var dotenvExpand = require('dotenv-expand')
+dotenvExpand(dotenv);
 
 let plugins = [
   new webpack.ProvidePlugin({
@@ -68,9 +70,9 @@ module.exports = {
   },
   plugins: plugins,
   devServer: {
-    port: '8000',
+    port: process.env.APP_DEV_SERVER_PORT,
     publicPath: '/',
-    contentBase: "./app",
-    historyApiFallback: false
+    contentBase: './app',
+    historyApiFallback: (process.env.HISTORY_API_FALLBACK == 'true')
   }
 }
