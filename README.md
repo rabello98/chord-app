@@ -1,6 +1,8 @@
 # Chord
 
-<img src="https://drive.google.com/uc?export=view&id=1_PxNua1RvSfrpwM0E-GF5tZLM51UpqV_" height="400" width="400">
+<p align="center">
+    <img src="https://drive.google.com/uc?export=view&id=1_PxNua1RvSfrpwM0E-GF5tZLM51UpqV_" height="400" width="400">
+</p>
 
 Chord is a simple and practical JavaScript SPA framework designed to create small modular and performative web applications.
 
