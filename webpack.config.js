@@ -18,6 +18,7 @@ let plugins = [
     "process.env": dotenv.parsed
   }),
   new HtmlWebpackPlugin({
+    favicon: path.resolve(__dirname, 'favicon.ico'),
     template: path.resolve(__dirname, 'app/index.html')
   }),
   new CleanWebpackPlugin(),

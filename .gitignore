@@ -1,2 +1,4 @@
 node_modules/*
 dist/*
+fwk-tmp/chord.js
+fwk-tmp/router.js
