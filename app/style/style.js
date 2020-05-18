@@ -1,2 +1,3 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
-import 'Style/app.css'
+import './app.css'
+import './transition.css'

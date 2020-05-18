@@ -1,16 +1,16 @@
 const path = require('path')
 const webpack = require('webpack')
 const babiliWebpackPlugin = require('babili-webpack-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const dotenv = require('dotenv').config();
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const dotenv = require('dotenv').config()
 var dotenvExpand = require('dotenv-expand')
-dotenvExpand(dotenv);
+dotenvExpand(dotenv)
 
 let plugins = [
   new webpack.ProvidePlugin({
-    $: 'jquery/dist/jquery.js',
-    jQuery: 'jquery/dist/jquery.js',
+    $: 'jquery/dist/jquery.min.js',
+    jQuery: 'jquery/dist/jquery.min.js',
     $chord: process.env.CHORD_DEV_PATH ? path.resolve(__dirname, process.env.CHORD_DEV_PATH) : 'chord-framework/dist/chord.js',
     $route: process.env.ROUTE_DEV_PATH ? path.resolve(__dirname, process.env.ROUTE_DEV_PATH) : 'chord-framework/dist/router.js'
   }),

@@ -1,0 +1,9 @@
+#app {
+    padding: 20px;
+    opacity: 0;
+    transition: opacity 0.25s ease-in-out;
+}
+
+#app.show{
+    opacity: 1;
+}
