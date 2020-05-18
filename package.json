@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server --config webpack.config.js",
-    "build": "cross-env NODE_ENV=production webpack --config webpack.config.js"
+    "build": "cross-env NODE_ENV=production webpack --config webpack.config.js",
+    "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup"
   },
   "repository": {
     "type": "git",
@@ -36,6 +37,7 @@
     "cross-env": "^5.2.1",
     "css-loader": "^3.5.3",
     "html-webpack-plugin": "^4.3.0",
+    "push-dir": "^0.4.1",
     "raw-loader": "^1.0.0",
     "style-loader": "^1.2.1",
     "webpack": "^4.43.0",
