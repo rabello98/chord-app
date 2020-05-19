@@ -74,8 +74,9 @@ module.exports = {
   plugins: plugins,
   devServer: {
     port: process.env.APP_DEV_SERVER_PORT,
-    publicPath: process.env.PUBLIC_PATH,
     contentBase: './app',
-    historyApiFallback: (process.env.HISTORY_API_FALLBACK == 'true')
+    historyApiFallback: {
+      index: process.env.PUBLIC_PATH != '/' ? process.env.PUBLIC_PATH + '/index.html' : '/index.html'
+    }
   }
 }
