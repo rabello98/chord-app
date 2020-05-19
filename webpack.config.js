@@ -6,6 +6,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const dotenv = require('dotenv').config()
 var dotenvExpand = require('dotenv-expand')
 dotenvExpand(dotenv)
+const Dotenv = require('dotenv-webpack');
 
 let plugins = [
   new webpack.ProvidePlugin({
@@ -14,14 +15,14 @@ let plugins = [
     $chord: process.env.CHORD_DEV_PATH ? path.resolve(__dirname, process.env.CHORD_DEV_PATH) : 'chord-framework/dist/chord.js',
     $route: process.env.ROUTE_DEV_PATH ? path.resolve(__dirname, process.env.ROUTE_DEV_PATH) : 'chord-framework/dist/router.js'
   }),
-  new webpack.DefinePlugin({
-    "process.env": dotenv.parsed
-  }),
   new HtmlWebpackPlugin({
     favicon: path.resolve(__dirname, 'favicon.ico'),
     template: path.resolve(__dirname, 'app/index.html')
   }),
   new CleanWebpackPlugin(),
+  new Dotenv({
+    expand: true
+  })
 ]
 
 if (process.env.NODE_ENV == 'production') {
@@ -73,7 +74,7 @@ module.exports = {
   plugins: plugins,
   devServer: {
     port: process.env.APP_DEV_SERVER_PORT,
-    publicPath: '/',
+    publicPath: process.env.PUBLIC_PATH,
     contentBase: './app',
     historyApiFallback: (process.env.HISTORY_API_FALLBACK == 'true')
   }
