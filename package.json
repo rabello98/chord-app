@@ -22,7 +22,7 @@
   "dependencies": {
     "babel-loader": "^7.1.5",
     "bootstrap": "^4.5.0",
-    "chord-framework": "^1.1.1",
+    "chord-framework": "^1.1.2",
     "dotenv": "^8.2.0",
     "dotenv-expand": "^5.1.0",
     "dotenv-webpack": "^1.8.0",

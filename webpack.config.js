@@ -29,6 +29,15 @@ if (process.env.NODE_ENV == 'production') {
   plugins.push(new babiliWebpackPlugin())
 }
 
+var server = {
+  port: process.env.APP_DEV_SERVER_PORT,
+  contentBase: './app' 
+}
+
+if (process.env.HISTORY_API_FALLBACK == 'true')  {
+  server.historyApiFallback = { index: process.env.PUBLIC_PATH != '/' ? process.env.PUBLIC_PATH + '/index.html' : '/index.html' }
+}
+
 module.exports = {
   entry: {
     app: path.resolve(__dirname, 'app/js/app.js'),
@@ -72,11 +81,5 @@ module.exports = {
     ]
   },
   plugins: plugins,
-  devServer: {
-    port: process.env.APP_DEV_SERVER_PORT,
-    contentBase: './app',
-    historyApiFallback: {
-      index: process.env.PUBLIC_PATH != '/' ? process.env.PUBLIC_PATH + '/index.html' : '/index.html'
-    }
-  }
+  devServer: server
 }
