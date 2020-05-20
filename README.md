@@ -173,10 +173,36 @@ Caso vc esteja utilizando um outro servidor, é necessário configurá-lo para r
 Essa configuração deve ser feita dentro de um arquivo ```.htaccess```.
 
 ### Ciclo de vida
-Cada módulo no Chord possui
+Cada módulo no Chord possui um ciclo de vida. Isso é muito importante para controlar a ordem em de execução das ações na nossa aplicação. Cada módulo possui quatro métodos:
+
+```beforeCreate```: Executado antes que o módulo seja montado na tela.
+
+```afterCreate```: Executado após o módulo ser montado.
+
+```beforeRemove```: Executado antes que o módulo seja removido da tela.
+
+```afterRemove```: Executado após o módulo ser removido.
+
+Após a remoção do módulo, todas as suas dependências são removidas também da tela para evitar problemas de performance.
 
 ### CSS
+Até o momento o Chord não permite a importação de estilos para cada módulo. Todos os arquivos de estilos são importados no aquivo principal ```/style/style.js```.
+
+O css é composto inicialmente por dois arquivos: ```app.css``` que contém todos os estilos principais da aplicação e o ```transition.css``` que possui a configuração da transição entre os módulo do Chord.
+
+Por padrão o Chord utiliza o Bootstrap na versão 4.5.0.
+
+Até o momento o Chord não suporta pré processadores de estilos.
 
 ### Colocando em produção
+Para colocar em produção basta rodar um comando que o Chord se encarregará de tudo.
+
+```npm run build``` 
+
+Os arquivos para produção serão gerados na pasta ```/dist```.
+
+Agora é só copiar os arquivos e colocar em algum servidor de sua preferência.
+
+Lembrando que caso esteja utilizando com o modo history é necessário configurar o servidor para retornar sempre que uma requisição de página no browser não for encontrada.
 
 ### Observações
