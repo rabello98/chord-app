@@ -8,6 +8,8 @@ Chord é um framework SPA (Single Page App) muito simples e versátil, capaz de 
 
 O Chord foi desenvolvido com o intuito de colocar os conhecimentos do seu criador em prática (JavaScript, Webpack, Design Patterns, etc.) 
 
+Acesse o Chord: <a href="https://rabello98.github.io/chord-app/" target="_blank">
+
 ### Primeiros Passos
 Para começar a utilizar o Chord, é necessário clonar o projeto ou fazer o download.
 
@@ -195,6 +197,18 @@ Por padrão o Chord utiliza o Bootstrap na versão 4.5.0.
 Até o momento o Chord não suporta pré processadores de estilos.
 
 ### Colocando em produção
+Antes de tudo devemos configurar a url e a pasta da nossa aplicação de produção. Neste exemplo a url configurada será a utilizada no gh-pages.
+
+Configuração do ```.env```
+
+```
+# must be configured correctly for production
+PUBLIC_PATH=/chord-app
+BASE_URL=https://rabello98.github.io${PUBLIC_PATH}/
+```
+
+Para o correto funcionamento, é necessário que o ```PUBLIC_PATH``` seja sempre iniciado com barra (nunca terminado com barra) e que o ```BASE_URL``` seja sempre terminado com barra.
+
 Para colocar em produção basta rodar um comando que o Chord se encarregará de tudo.
 
 ```npm run build``` 
@@ -203,6 +217,7 @@ Os arquivos para produção serão gerados na pasta ```/dist```.
 
 Agora é só copiar os arquivos e colocar em algum servidor de sua preferência.
 
-Lembrando que caso esteja utilizando com o modo history é necessário configurar o servidor para retornar sempre que uma requisição de página no browser não for encontrada.
+Lembrando que caso esteja utilizando com o modo history é necessário configurar o servidor para retornar para a index sempre que uma requisição de página no browser não for encontrada.
 
 ### Observações
+Até o momento o Chord não possui nenhuma lib de reatividade por padrão, mas você pode utilizar qualquer uma de sua preferência, como o knockout.js.
