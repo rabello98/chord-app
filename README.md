@@ -8,7 +8,7 @@ Chord é um framework SPA (Single Page App) muito simples e versátil, capaz de 
 
 O Chord foi desenvolvido com o intuito de colocar os conhecimentos do seu criador em prática (JavaScript, Webpack, Design Patterns, etc.) 
 
-Acesse o Chord: <a href="https://rabello98.github.io/chord-app/" target="_blank">
+<a href="https://rabello98.github.io/chord-app/" target="_blank">Acesse o Chord</a>
 
 ### Primeiros Passos
 Para começar a utilizar o Chord, é necessário clonar o projeto ou fazer o download.
