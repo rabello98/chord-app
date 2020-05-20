@@ -29,6 +29,18 @@ npm run dev
 
 E pronto! acesse a URL pelo browser que tudo está funcionando. O Servidor está configurado por padrão na porta 8000 mas você pode alterar para uma porta de sua preferência alterando a variável ```APP_DEV_SERVER_PORT``` no ```.env```.
 
+### Importando módulos externos
+
+O arquivo principal do Chord fica em ```/js/app.js```. Lá estão as configurações iniciais da aplicação e tudo que precisar ser carregado. Caso queria importar módulos externos, basta importar os módulos e registrar com o método ```initGlobalModules```.
+
+```javascript
+import moment from 'moment'
+
+$chord.initGlobalModules({
+    moment
+})
+```
+
 ### Criando suas primeiras páginas
 No Chord as páginas são tratadas como módulos. Para criar um módulo, é necessário incluir dois arquivos, um na pasta ```/js``` e o outro na pasta ```/view```. No projeto de exemplo temos a área de produtos com alguns módulos de demonstração.
 
@@ -100,13 +112,48 @@ export const products = [
 
 Criamos então uma const com o nome da área das rotas e registramos o js e o html dos módulos criados, path que será acessado no browser e um nome para a navegação.
 
-Os diretórios JS, View e Style são resolvidos automaticamente pelo alias caso queira importar algum arquivo, como no exemplo acima.
+Os diretórios ```JS, View e Style``` são resolvidos automaticamente pelo alias caso queira importar algum arquivo, como no exemplo acima.
+
+Agora só falta registrar no arquivo principal de rotas em ```/js/routes/routes.js``.
+
+```javascript
+import { products } from './products'
+
+export const routes = [
+    ...products
+]
+```
+
+#### Parametros
+
+As rotas do Chord permitem passagem de parametros obrigatórios e não obrigatórios em suas rotas.
+
+use ```:param``` para parâmetros obrigatórios e ```(:param)``` para parâmetros não obrigatórios.
+
+```javascript
+export const products = [
+    {
+        module: edit,
+        view: editView,
+        path: '/Products/Edit/(:product_id)',
+        name: 'products.edit'
+    },
+    {
+        module: detail,
+        view: detailView,
+        path: '/Products/Detail/:product_id',
+        name: 'products.detail'
+    }
+]
+```
+
+#### History Mode
 
 O Chord possui o modo history de navegação, que serve para remover a hashtag da url do browser. Para ativar o modo history vá até ```/app/js/app.js``` e na configuração inicial do Chord altere ```historyMode``` para true.
 
-Mas não é só isso, pois com o history mode nosso servidor não sabe o que fazer quando tentamos acessar uma página da nossa aplicação ou até mesmo quando recarregamos a páina. Isso acontece porque o Chord faz uma simulação de que as páginas estão sendo trocadas mas na verdade utilizamos uma página apenas para fazer tudo.
+Mas não é só isso, pois com o history mode nosso servidor não sabe o que fazer quando tentamos acessar uma página da nossa aplicação ou até mesmo quando recarregamos a página. Isso acontece porque o Chord faz uma simulação de que as páginas estão sendo trocadas mas na verdade utilizamos uma página apenas para fazer tudo.
 
-Como nossas páginas não existem relamente no servidor, devemos configurar o nosso servidor para retornar para a página inicial sempre que uma página acessada não seja encontrada. 
+Como nossas páginas não existem realmente no servidor, devemos configurá-lo para retornar à página inicial sempre que uma página url não seja encontrada. 
 
 No nosso servidor de desenvolvimento já temos isso disponível para configuração. Vá até o ```.env``` e altere a variável ```HISTORY_API_FALLBACK``` para true. Isso serve para dizer para o nosso servidor que todas as vezes que ele não encontrar uma página solicitada pela url, ele deve retornar para a ```index.html``` que o Chord se encarregará de tudo.
 
@@ -126,7 +173,7 @@ Caso vc esteja utilizando um outro servidor, é necessário configurá-lo para r
 Essa configuração deve ser feita dentro de um arquivo ```.htaccess```.
 
 ### Ciclo de vida
-
+Cada módulo no Chord possui
 
 ### CSS
 
