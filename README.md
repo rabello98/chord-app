@@ -4,11 +4,11 @@
     <img src="https://drive.google.com/uc?export=view&id=1_PxNua1RvSfrpwM0E-GF5tZLM51UpqV_" height="400" width="400">
 </p>
 
+<a href="https://rabello98.github.io/chord-app/" target="_blank">Acesse o Chord</a>
+
 Chord é um framework SPA (Single Page App) muito simples e versátil, capaz de criar aplicações modulares com muita rapidez. As páginas da aplicação são divididas em módulos permitindo assim uma maior facilidade de manutenção e organização dos projetos desenvolvidos. O Chord possui também a a funcionalidade de roteamento, que é capaz de criar a sensação de que o usuário esteja navegando entre as páginas (módulos) sem que a página seja realmente trocada no browser. 
 
 O Chord foi desenvolvido com o intuito de colocar os conhecimentos do seu criador em prática (JavaScript, Webpack, Design Patterns, etc.) 
-
-<a href="https://rabello98.github.io/chord-app/" target="_blank">Acesse o Chord</a>
 
 ### Primeiros Passos
 Para começar a utilizar o Chord, é necessário clonar o projeto ou fazer o download.
@@ -186,6 +186,33 @@ Cada módulo no Chord possui um ciclo de vida. Isso é muito importante para con
 ```afterRemove```: Executado após o módulo ser removido.
 
 Após a remoção do módulo, todas as suas dependências são removidas também da tela para evitar problemas de performance.
+
+Para utilizar os métodos do ciclo de vida você deve declará-los um nível acima do objeto ```component```.
+
+```javascript
+export default {
+    component: {
+    },
+
+    beforeCreate (params) {
+        
+    },
+
+    afterCreate () {
+        
+    },
+
+    beforeRemove () {
+        
+    },
+
+    afterRemove () {
+        
+    }
+}
+```
+
+O ```beforeCreate``` recebe os parâmetros passado pelas rotas.
 
 ### CSS
 Até o momento o Chord não permite a importação de estilos para cada módulo. Todos os arquivos de estilos são importados no aquivo principal ```/style/style.js```.
