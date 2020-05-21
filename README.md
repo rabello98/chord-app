@@ -10,6 +10,8 @@ Chord é um framework SPA (Single Page App) muito simples e versátil, capaz de 
 
 O Chord foi desenvolvido com o intuito de colocar os conhecimentos do seu criador em prática (JavaScript, Webpack, Design Patterns, etc.) 
 
+O Chord depende diretamente do <a href="https://www.npmjs.com/package/chord-framework" target="_blank" >chord-framework</a>, que é responsável por toda a responsabilidade estrutural e de rotas do framework.
+
 ### Primeiros Passos
 Para começar a utilizar o Chord, é necessário clonar o projeto ou fazer o download.
 
