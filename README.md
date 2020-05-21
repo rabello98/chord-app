@@ -45,6 +45,10 @@ $chord.initGlobalModules({
 })
 ```
 
+Você pode acessar de qualquer parte do projeto pelo singleton .
+
+```$chord.globalModules.moment```
+
 ### Criando suas primeiras páginas
 No Chord as páginas são tratadas como módulos. Para criar um módulo, é necessário incluir dois arquivos, um na pasta ```/js``` e o outro na pasta ```/view```. No projeto de exemplo temos a área de produtos com alguns módulos de demonstração.
 
@@ -128,9 +132,13 @@ export const routes = [
 ]
 ```
 
-#### Parametros
+Você pode utilizar o singleton de rotas para navegar entre as páginas. 
 
-As rotas do Chord permitem passagem de parametros obrigatórios e não obrigatórios em suas rotas.
+```$route.go({ name: 'route.name' })```
+
+#### Parâmetros
+
+As rotas do Chord permitem passagem de parâmetros obrigatórios e não obrigatórios em suas rotas.
 
 use ```:param``` para parâmetros obrigatórios e ```(:param)``` para parâmetros não obrigatórios.
 
@@ -151,13 +159,17 @@ export const products = [
 ]
 ```
 
+Passe parâmetros pela navegação
+
+```$route.go({ name: 'route.name', params: { param_id : '5341'} })```
+
 #### History Mode
 
 O Chord possui o modo history de navegação, que serve para remover a hashtag da url do browser. Para ativar o modo history vá até ```/app/js/app.js``` e na configuração inicial do Chord altere ```historyMode``` para true.
 
 Mas não é só isso, pois com o history mode nosso servidor não sabe o que fazer quando tentamos acessar uma página da nossa aplicação ou até mesmo quando recarregamos a página. Isso acontece porque o Chord faz uma simulação de que as páginas estão sendo trocadas mas na verdade utilizamos uma página apenas para fazer tudo.
 
-Como nossas páginas não existem realmente no servidor, devemos configurá-lo para retornar à página inicial sempre que uma página url não seja encontrada. 
+Como nossas páginas não existem realmente no servidor, devemos configurá-lo para retornar à página inicial sempre que uma url não for encontrada. 
 
 No nosso servidor de desenvolvimento já temos isso disponível para configuração. Vá até o ```.env``` e altere a variável ```HISTORY_API_FALLBACK``` para true. Isso serve para dizer para o nosso servidor que todas as vezes que ele não encontrar uma página solicitada pela url, ele deve retornar para a ```index.html``` que o Chord se encarregará de tudo.
 
@@ -249,4 +261,4 @@ Agora é só copiar os arquivos e colocar em algum servidor de sua preferência.
 Lembrando que caso esteja utilizando com o modo history é necessário configurar o servidor para retornar para a index sempre que uma requisição de página no browser não for encontrada.
 
 ### Observações
-Até o momento o Chord não possui nenhuma lib de reatividade por padrão, mas você pode utilizar qualquer uma de sua preferência, como o knockout.js.
+Até o momento o Chord não possui nenhuma lib de reatividade por padrão, mas você pode utilizar qualquer uma de sua preferência, como o Knockout.js.
